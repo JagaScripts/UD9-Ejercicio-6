@@ -11,7 +11,11 @@ public class SalaCine {
 		this.proyecta = peli;
 		this.precioEntrada = PRECIO_ENTRADA;
 	}
-
+	
+	public SalaCine () {
+		this.proyecta = null;
+		this.precioEntrada = PRECIO_ENTRADA;
+	}
 
 	public Pelicula getProyecta() {
 		return proyecta;
@@ -27,5 +31,25 @@ public class SalaCine {
 
 	public void setPrecioEntrada(double precioEntrada) {
 		this.precioEntrada = precioEntrada;
+	
+	}
+	public static void mostrarCine(char[][] sala) {
+		final int CARACTER = 65;
+		int i, j, caracter, max = sala.length;
+		for (i = 0; i < sala.length; i++, max--) {
+			caracter = CARACTER; // Esto es para las letra
+			for (j = 0; j < sala[i].length; j++, caracter++) {
+				System.out.print(max + "" + (char)caracter + "" + sala[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	public static void llenarMatriz (char[][] sala) {
+		int i, j;
+		for (i = 0; i < sala.length; i++) {
+			for (j = 0; j < sala[i].length; j++) {
+				sala[i][j] = '-';
+			}
+		}
 	}
 }

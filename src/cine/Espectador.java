@@ -6,6 +6,18 @@ public class Espectador {
 		private int edad;
 		private double dinero;
 		
+		public Espectador() {
+			this.nombre = "";
+			this.edad = 30;
+			this.dinero = 30.0;
+		}
+		
+		public Espectador(String nombre, int edad, double dinero) {
+			this.nombre = nombre;
+			this.edad = edad;
+			this.dinero = dinero;
+		}
+		
 		public String getNombre() {
 			return nombre;
 		}

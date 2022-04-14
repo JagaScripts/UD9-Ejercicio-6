@@ -45,7 +45,6 @@ public class Pelicula {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-	
-	
+		
 	
 }

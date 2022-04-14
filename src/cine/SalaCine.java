@@ -5,13 +5,11 @@ public class SalaCine {
 	private Pelicula proyecta;
 	private double precioEntrada;
 	
-	public Cine() {
-		this(new Pelicula(), 10);
-	}
+	final private double PRECIO_ENTRADA=7.80;
 	
-	public Cine (Pelicula peli, double precio) {
-		this.retransmite = peli;
-		this.precioEntrada = precio;
+	public SalaCine (Pelicula peli) {
+		this.proyecta = peli;
+		this.precioEntrada = PRECIO_ENTRADA;
 	}
 
 

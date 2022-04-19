@@ -2,11 +2,13 @@ package cine;
 
 public class Pelicula {
 
+	
 	private String titulo;
 	private double duracion;
 	private int edadMinima;
 	private String director;
 	
+	//contructor
 	public Pelicula(String titulo, double duracion, int edadMinima, String director) {
 		this.titulo = titulo;
 		this.duracion = duracion;
@@ -14,6 +16,7 @@ public class Pelicula {
 		this.director = director;
 	}
 
+	//geters i seters
 	public String getTitulo() {
 		return titulo;
 	}

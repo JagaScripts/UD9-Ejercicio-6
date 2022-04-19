@@ -49,7 +49,11 @@ public class SalaCine {
 		for (i = 0; i < sala.length; i++) {
 			for (j = 0; j < sala[i].length; j++) {
 				sala[i][j] = '-';
+				System.out.print(sala[i][j]);
 			}
+			System.out.println("");
 		}
 	}
+	
+	
 }

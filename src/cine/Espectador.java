@@ -69,5 +69,4 @@ public class Espectador {
 	public String toString() {
 		return "Espectador [nombre=" + nombre + ", edad=" + edad + ", dinero=" + dinero + "]";
 	}
-
 }

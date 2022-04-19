@@ -1,5 +1,7 @@
 package cine;
 
+import java.util.Random;
+
 public class Espectador {
 
 		private String nombre;
@@ -37,5 +39,24 @@ public class Espectador {
 			this.dinero = dinero;
 		}
 		
+		//METODOS para ver  si es apto de edad
+		public boolean aptoEdad(Pelicula peli) {
+			boolean apto = false;
+			
+			if (getEdad() > peli.getEdadMinima()) {
+	            apto = true;
+	        }
+			
+			return apto;
+		}
+		//metodo para ver si es comprar la entrada de cine
+		public boolean compraEntrada (SalaCine cine) {
+			
+			if (cine.getPrecioEntrada() > getDinero()) {
+				return false;
+			} else {
+				return true;
+			}
+		}
 		
 }

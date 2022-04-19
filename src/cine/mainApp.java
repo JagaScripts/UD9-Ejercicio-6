@@ -23,6 +23,7 @@ public class mainApp {
 		
 		//cine.mostrarCine(sala);
 		
+		
 		}
 	//Para generar edad random
 	public static int edadRandom () {

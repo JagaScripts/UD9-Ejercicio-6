@@ -1,30 +1,12 @@
 package cine;
 
-import java.util.Random;
-
 public class Espectador {
 
-<<<<<<< HEAD
-		private String nombre;
-		private int edad;
-		private double dinero;
-		private int fil;
-		private int col;
-		
-		public Espectador() {
-			this.nombre = "";
-			this.edad = 30;
-			this.dinero = 30.0;
-		}
-		
-		public Espectador(String nombre, int edad, double dinero) {
-			this.nombre = nombre;
-			this.edad = edad;
-			this.dinero = dinero;
-=======
 	private String nombre;
 	private int edad;
 	private double dinero;
+	private int fil;
+	private int col;
 
 	public Espectador() {
 		this.nombre = "";
@@ -68,7 +50,7 @@ public class Espectador {
 
 		if (getEdad() > peli.getEdadMinima()) {
 			apto = true;
->>>>>>> de4c48ac9ffeb8bc9c6bb0a5f63989997fccfc19
+
 		}
 
 		return apto;

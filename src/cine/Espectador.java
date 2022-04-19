@@ -1,5 +1,7 @@
 package cine;
 
+import java.util.Random;
+
 public class Espectador {
 
 	private String nombre;
@@ -10,15 +12,9 @@ public class Espectador {
 	private boolean sentado;
 
 	public Espectador() {
-		this.nombre = "";
-		this.edad = 30;
-		this.dinero = 30.0;
-	}
-
-	public Espectador(String nombre, int edad, double dinero) {
-		this.nombre = nombre;
-		this.edad = edad;
-		this.dinero = dinero;
+		this.nombre = generarNombresAleatorios();
+		this.edad = edadRandom();
+		this.dinero = dineroRandom();
 		this.sentado = false;
 	}
 
@@ -97,5 +93,30 @@ public class Espectador {
 		this.sentado = sentado;
 	}
 	
+	// Para generar edad random
+	private static int edadRandom() {
+		Random rnd = new Random();
+		return (int) (rnd.nextDouble() * 100 + 1);
+
+	}
+
+	// Para generar dinero random
+	private static int dineroRandom() {
+		Random rnd = new Random();
+		return (int) (rnd.nextDouble() * 90 + 1);
+
+	}
 	
+	// Generar nombres aleatorios
+	private static String generarNombresAleatorios() {
+		String nombresAleatorios;
+
+		String[] nombres = { "Andrea", "David", "Baldomero", "Balduino", "Baldwin", "Baltasar", "Barry", "Bartolo",
+				"Bartolom�", "Baruc", "Baruj", "Candelaria", "C�ndida", "Canela", "Caridad", "Carina", "Carisa",
+				"Caritina", "Carlota", "Baltazar" };
+
+		nombresAleatorios = nombres[(int) (Math.floor(Math.random() * ((nombres.length - 1))))];
+
+		return nombresAleatorios;
+	}
 }

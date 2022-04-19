@@ -1,9 +1,6 @@
 package cine;
 
-import java.util.Hashtable;
 import java.util.Random;
-
-import javax.swing.JOptionPane;
 
 public class mainApp {
 
@@ -46,7 +43,7 @@ public class mainApp {
 
 				// Si el asiento esta libre
 				if (cine.comprobarAsiento(sala, filaAsiento, columnaAsiento)) {// Creamos el espectador
-					espectadores[i] = new Espectador(generarNombresAleatorios(), edadRandom(), dineroRandom());
+					espectadores[i] = new Espectador();
 					// mirar si tiene sufucuente dinero i edad
 					if (espectadores[i].getDinero() >= cine.getPrecioEntrada()
 							&& espectadores[i].getEdad() >= peli.getEdadMinima()) {
@@ -92,35 +89,10 @@ public class mainApp {
 
 	}
 
-	// Para generar edad random
-	public static int edadRandom() {
-		Random rnd = new Random();
-		return (int) (rnd.nextDouble() * 100 + 1);
-
-	}
-
-	// Para generar dinero random
-	public static int dineroRandom() {
-		Random rnd = new Random();
-		return (int) (rnd.nextDouble() * 90 + 1);
-
-	}
-
 	// Para generar asiento random
 	public static int asientoRandom(int max) {
 		Random rnd = new Random();
 		return (int) (rnd.nextDouble() * max);
 	}
-	//Generar nombres aleatorios
-	public static String generarNombresAleatorios() {
-		String nombresAleatorios;
-
-		String[] nombres = { "Andrea", "David", "Baldomero", "Balduino", "Baldwin", "Baltasar", "Barry", "Bartolo",
-				"Bartolom�", "Baruc", "Baruj", "Candelaria", "C�ndida", "Canela", "Caridad", "Carina", "Carisa",
-				"Caritina", "Carlota", "Baltazar" };
-
-		nombresAleatorios = nombres[(int) (Math.floor(Math.random() * ((nombres.length - 1))))];
-
-		return nombresAleatorios;
-	}
+	
 }

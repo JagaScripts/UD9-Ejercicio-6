@@ -14,12 +14,10 @@ public class Espectador {
 			this.dinero = 30.0;
 		}
 		
-		public Espectador(String nombre, int edad, double dinero, int fil, int col) {
+		public Espectador(String nombre, int edad, double dinero) {
 			this.nombre = nombre;
 			this.edad = edad;
 			this.dinero = dinero;
-			this.fil = fil;
-			this.col = col;
 		}
 
 		public String getNombre() {

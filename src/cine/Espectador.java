@@ -5,8 +5,6 @@ public class Espectador {
 		private String nombre;
 		private int edad;
 		private double dinero;
-		private int fil;
-		private int col;
 		
 		public Espectador() {
 			this.nombre = "";
@@ -14,14 +12,12 @@ public class Espectador {
 			this.dinero = 30.0;
 		}
 		
-		public Espectador(String nombre, int edad, double dinero, int fil, int col) {
+		public Espectador(String nombre, int edad, double dinero) {
 			this.nombre = nombre;
 			this.edad = edad;
 			this.dinero = dinero;
-			this.fil = fil;
-			this.col = col;
 		}
-
+		
 		public String getNombre() {
 			return nombre;
 		}
@@ -41,41 +37,5 @@ public class Espectador {
 			this.dinero = dinero;
 		}
 		
-		public int getFil() {
-			return fil;
-		}
-
-		public void setFil(int fil) {
-			this.fil = fil;
-		}
-
-		public int getCol() {
-			return col;
-		}
-
-		public void setCol(int col) {
-			this.col = col;
-		}
-
-		//METODOS para ver  si es apto de edad
-		public boolean aptoEdad(Pelicula peli) {
-			boolean apto = false;
-			
-			if (getEdad() > peli.getEdadMinima()) {
-	            apto = true;
-	        }
-			
-			return apto;
-		}
-		//metodo para ver si es comprar la entrada de cine
-		public boolean compraEntrada (SalaCine cine) {
-			
-			if (cine.getPrecioEntrada() > getDinero()) {
-				return false;
-			} else {
-				return true;
-			}
-		}
 		
-				
 }

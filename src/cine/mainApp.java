@@ -39,8 +39,7 @@ public class mainApp {
 
 				// Si el asiento esta libre
 				if (cine.comprobarAsiento(sala, filaAsiento, columnaAsiento)) {// Creamos el espectador
-					espectadores[i] = new Espectador(generarNombresAleatorios(), edadRandom(), dineroRandom(),
-							filaAsiento, columnaAsiento);
+					espectadores[i] = new Espectador(generarNombresAleatorios(), edadRandom(), dineroRandom());
 					sala[filaAsiento][columnaAsiento] = 'X';
 					condicion = true;
 				} else {// Si no esta libre generamos otro asiento

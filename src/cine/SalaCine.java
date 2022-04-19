@@ -34,7 +34,7 @@ public class SalaCine {
 
 	}
 
-	public static void mostrarCine(char[][] sala) {
+	public void mostrarCine(char[][] sala) {
 		final int CARACTER = 65;
 		int i, j, caracter, max = sala.length;
 		for (i = 0; i < sala.length; i++, max--) {
@@ -46,7 +46,7 @@ public class SalaCine {
 		}
 	}
 
-	public static void llenarMatriz(char[][] sala) {
+	public void llenarMatriz(char[][] sala) {
 		int i, j;
 		for (i = 0; i < sala.length; i++) {
 			for (j = 0; j < sala[i].length; j++) {
@@ -55,7 +55,7 @@ public class SalaCine {
 		}
 	}
 
-	public static boolean comprobarAsiento(char[][] sala, int fil, int col) {
+	public boolean comprobarAsiento(char[][] sala, int fil, int col) {
 
 		//Comprobamos si el asiento esta vacio
 		if (sala[fil][col] == '-') {

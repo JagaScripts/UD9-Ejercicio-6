@@ -6,16 +6,15 @@ public class mainApp {
 
 	public static void main(String[] args) {
 
-		//variables
+		// variables
 		final int FILA = 8, COL = 9;
+		final int NUM_ESPECTADORES = 20;
 		// Sala de cine
 		char[][] sala = new char[FILA][COL];
-		boolean generar;
 		int fila, col, total = FILA * COL; // total de asientos
-		String pregunta;
-		Espectador espectadores[] = new Espectador[10];
-		
-		//objetos
+		Espectador espectadores[] = new Espectador[NUM_ESPECTADORES];
+
+		// objetos
 		Pelicula peli = new Pelicula("Batman", 144, 10, "saik");
 		SalaCine cine1 = new SalaCine(peli);
 		SalaCine cine = new SalaCine();
@@ -31,72 +30,61 @@ public class mainApp {
 		System.out.println();
 
 		// Una vuelta por cada Espectador
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < NUM_ESPECTADORES; i++) {
 
 			int filaAsiento, columnaAsiento;
 			boolean condicion = false;
-			
+
 			filaAsiento = asientoRandom(FILA);
 			columnaAsiento = asientoRandom(COL);
-			do {
-				// Generamos los asientos
 
-				// Si el asiento esta libre
-				if (cine.comprobarAsiento(sala, filaAsiento, columnaAsiento)) {// Creamos el espectador
-					espectadores[i] = new Espectador();
-					// mirar si tiene sufucuente dinero i edad
-					if (espectadores[i].getDinero() >= cine.getPrecioEntrada()
-							&& espectadores[i].getEdad() >= peli.getEdadMinima()) {
+			espectadores[i] = new Espectador();
+
+			// Comprobamos que el cliente cumpla las condiciones
+			if (espectadores[i].compraEntrada(cine) && espectadores[i].aptoEdad(peli)) {
+				do {
+					if (cine1.comprobarAsiento(sala, filaAsiento, columnaAsiento)) {
 						sala[filaAsiento][columnaAsiento] = 'X';
 						espectadores[i].setFil(filaAsiento);
 						espectadores[i].setCol(columnaAsiento);
+						espectadores[i].setSentado(true);
 						condicion = true;
-						espectadores[i].setSentado(condicion);
 					} else {
-						//printamos si no puede estat i m ostramos las sod opciones
-						/*System.out.println("No puedes entrar " + espectadores[i].getNombre());
-						System.out.println("tu edad " + espectadores[i].getEdad() + "--> edad minima de la pelicula "+ peli.getEdadMinima());
-						System.out.println("tu dinero " + espectadores[i].getDinero() + "--> Precio de el cine "+ cine.getPrecioEntrada());
-						System.out.println();*/
-						espectadores[i].setSentado(condicion);
+						filaAsiento = asientoRandom(FILA);
+						columnaAsiento = asientoRandom(COL);
 					}
 
-				} else {// Si no esta libre generamos otro asiento
-					// System.out.println("Es false");
-					filaAsiento = asientoRandom(FILA);
-					columnaAsiento = asientoRandom(COL);
+				} while (!condicion);
+			} else {
+				espectadores[i].setSentado(false);
+			}
+
+		}
+		
+		System.out.println("Estos espectadores si han podido entrar: \n");
+		
+		for (int i = 0; i < espectadores.length; i++) {
+			if(espectadores[i].isSentado()) {
+				System.out.println(espectadores[i].getNombre());
+			}
+		}
+
+		System.out.println("\nEstos espectadores no han podido entrar: \n");
+
+		for (int i = 0; i < espectadores.length; i++) {
+			if (!espectadores[i].isSentado()) {
+				if (!espectadores[i].compraEntrada(cine)) {
+					System.out.println(espectadores[i].getNombre() + " no tiene dinero suficiente... su dinero: "
+							+ espectadores[i].getDinero() + "€");
+				} else {
+					System.out.println(espectadores[i].getNombre() + " no tiene la edad suficiente... su edad: "
+							+ espectadores[i].getEdad() + " años");
 				}
-			} while (!condicion);
-							
-		}
-		
-	/*	System.out.println("Estos espectadores si han podido entrar: ");
-		System.out.println();
-		for (int i = 0; i < espectadores.length; i++) {
-			if (espectadores[i].isSentado()) {
-				System.out.println("Puedes entrar " + espectadores[i].getNombre());
-				System.out.println("tu edad " + espectadores[i].getEdad() + " --> edad minima de la pelicula " + peli.getEdadMinima());
-				System.out.println("tu dinero " + espectadores[i].getDinero() + " --> Precio de el cine " + cine.getPrecioEntrada());
-				System.out.println("su asiento es columna " + espectadores[i].getCol() + " --> y fila " + espectadores[i].getFil());
-				System.out.println();
-			}
-		}*/
-		
-		System.out.println("Estos espectadores no han podido entrar: ");
-		System.out.println();
-		for (int i = 0; i < espectadores.length; i++) {
-			if (espectadores[i].isSentado()) {
-				System.out.println("Puedes entrar " + espectadores[i].getNombre());
-				System.out.println("tu edad " + espectadores[i].getEdad() + " --> edad minima de la pelicula " + peli.getEdadMinima());
-				System.out.println("tu dinero " + espectadores[i].getDinero() + " --> Precio de el cine " + cine.getPrecioEntrada());
-				System.out.println("su asiento es columna " + espectadores[i].getCol() + " --> y fila " + espectadores[i].getFil());
-				System.out.println();
 			}
 		}
-			
-		System.out.println("CINE CON ESPECTADORES");
-		System.out.println("El asiento vacío se indeca con un guión (X)");
-		System.out.println();
+
+		System.out.println("\nCINE CON ESPECTADORES");
+		System.out.println("El asiento ocupado se indeca con una equis (X)\n");
 		cine.mostrarCine(sala);
 
 	}
@@ -106,5 +94,5 @@ public class mainApp {
 		Random rnd = new Random();
 		return (int) (rnd.nextDouble() * max);
 	}
-	
+
 }

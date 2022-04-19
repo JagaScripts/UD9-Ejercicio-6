@@ -11,7 +11,7 @@ public class mainApp {
 		final int NUM_ESPECTADORES = 20;
 		// Sala de cine
 		char[][] sala = new char[FILA][COL];
-		int fila, col, total = FILA * COL; // total de asientos
+		//int fila, col, total = FILA * COL; // total de asientos
 		Espectador espectadores[] = new Espectador[NUM_ESPECTADORES];
 
 		// objetos
@@ -42,6 +42,7 @@ public class mainApp {
 
 			// Comprobamos que el cliente cumpla las condiciones
 			if (espectadores[i].compraEntrada(cine) && espectadores[i].aptoEdad(peli)) {
+				//Una vez que sabemos que pueden entrar, les asignamos un asiento que no este ocupado
 				do {
 					if (cine1.comprobarAsiento(sala, filaAsiento, columnaAsiento)) {
 						sala[filaAsiento][columnaAsiento] = 'X';
@@ -49,40 +50,41 @@ public class mainApp {
 						espectadores[i].setCol(columnaAsiento);
 						espectadores[i].setSentado(true);
 						condicion = true;
-					} else {
+					} else {//Si esta ocupado, entra aqui y les reasigna a otra asiento
 						filaAsiento = asientoRandom(FILA);
 						columnaAsiento = asientoRandom(COL);
 					}
 
 				} while (!condicion);
-			} else {
+			} else {//Si no tienen dinero o la edad no entran
 				espectadores[i].setSentado(false);
 			}
 
 		}
 		
-		System.out.println("Estos espectadores si han podido entrar: \n");
-		
+		//Bucle para listar los espectadores que estan en el cine
+		System.out.println("Estos espectadores si han podido entrar: \n");		
 		for (int i = 0; i < espectadores.length; i++) {
 			if(espectadores[i].isSentado()) {
 				System.out.println(espectadores[i].getNombre());
 			}
 		}
 
+		//Bucle para listar los que no han entrado
 		System.out.println("\nEstos espectadores no han podido entrar: \n");
-
 		for (int i = 0; i < espectadores.length; i++) {
 			if (!espectadores[i].isSentado()) {
-				if (!espectadores[i].compraEntrada(cine)) {
+				if (!espectadores[i].compraEntrada(cine)) { //Si no tienen dinero...
 					System.out.println(espectadores[i].getNombre() + " no tiene dinero suficiente... su dinero: "
 							+ espectadores[i].getDinero() + "€");
-				} else {
+				} else {//Si no tienen la edad
 					System.out.println(espectadores[i].getNombre() + " no tiene la edad suficiente... su edad: "
 							+ espectadores[i].getEdad() + " años");
 				}
 			}
 		}
 
+		//Mostramos como a quedado el cine
 		System.out.println("\nCINE CON ESPECTADORES");
 		System.out.println("El asiento ocupado se indeca con una equis (X)\n");
 		cine.mostrarCine(sala);

@@ -62,7 +62,8 @@ public class Espectador {
 	public boolean aptoEdad(Pelicula peli) {
 		boolean apto = false;
 
-		if (getEdad() > peli.getEdadMinima()) {
+		//Si tienes la edad ...true
+		if (getEdad() >= peli.getEdadMinima()) {
 			apto = true;
 
 		}
@@ -73,7 +74,8 @@ public class Espectador {
 	// metodo para ver si es comprar la entrada de cine
 	public boolean compraEntrada(SalaCine cine) {
 
-		if (cine.getPrecioEntrada() > getDinero()) {
+		//Si tienes menos dinero que la entrada... false
+		if (cine.getPrecioEntrada() >= getDinero()) {
 			return false;
 		} else {
 			return true;
@@ -95,15 +97,17 @@ public class Espectador {
 	
 	// Para generar edad random
 	private static int edadRandom() {
+		//Generamos la edad aleatoriamente
 		Random rnd = new Random();
-		return (int) (rnd.nextDouble() * 100 + 1);
+		return (int) (rnd.nextDouble() * 100 + 1); //Entre 1 y 100
 
 	}
 
 	// Para generar dinero random
 	private static int dineroRandom() {
+		//generamos dinero aleatoriamente
 		Random rnd = new Random();
-		return (int) (rnd.nextDouble() * 90 + 1);
+		return (int) (rnd.nextDouble() * 90 + 1); //Entre 1 y 90
 
 	}
 	
@@ -115,6 +119,7 @@ public class Espectador {
 				"Bartolom�", "Baruc", "Baruj", "Candelaria", "C�ndida", "Canela", "Caridad", "Carina", "Carisa",
 				"Caritina", "Carlota", "Baltazar" };
 
+		//Generamos un nombre aleatorio de la matriz
 		nombresAleatorios = nombres[(int) (Math.floor(Math.random() * ((nombres.length - 1))))];
 
 		return nombresAleatorios;

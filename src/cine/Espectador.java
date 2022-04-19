@@ -36,6 +36,22 @@ public class Espectador {
 		this.edad = edad;
 	}
 
+	public int getFil() {
+		return fil;
+	}
+
+	public void setFil(int fil) {
+		this.fil = fil;
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public void setCol(int col) {
+		this.col = col;
+	}
+
 	public double getDinero() {
 		return dinero;
 	}

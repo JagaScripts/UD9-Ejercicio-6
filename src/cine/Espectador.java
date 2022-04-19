@@ -65,4 +65,9 @@ public class Espectador {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Espectador [nombre=" + nombre + ", edad=" + edad + ", dinero=" + dinero + "]";
+	}
+
 }

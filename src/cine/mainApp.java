@@ -54,11 +54,11 @@ public class mainApp {
 						espectadores[i].setSentado(condicion);
 					} else {
 						//printamos si no puede estat i m ostramos las sod opciones
-						System.out.println("No puedes entrar " + espectadores[i].getNombre());
+						/*System.out.println("No puedes entrar " + espectadores[i].getNombre());
 						System.out.println("tu edad " + espectadores[i].getEdad() + "--> edad minima de la pelicula "+ peli.getEdadMinima());
 						System.out.println("tu dinero " + espectadores[i].getDinero() + "--> Precio de el cine "+ cine.getPrecioEntrada());
-						System.out.println();
-						espectadores[i].setSentado(false);
+						System.out.println();*/
+						espectadores[i].setSentado(condicion);
 					}
 
 				} else {// Si no esta libre generamos otro asiento
@@ -70,7 +70,19 @@ public class mainApp {
 							
 		}
 		
-		System.out.println("Estos espectadores si han podido entrar: ");
+	/*	System.out.println("Estos espectadores si han podido entrar: ");
+		System.out.println();
+		for (int i = 0; i < espectadores.length; i++) {
+			if (espectadores[i].isSentado()) {
+				System.out.println("Puedes entrar " + espectadores[i].getNombre());
+				System.out.println("tu edad " + espectadores[i].getEdad() + " --> edad minima de la pelicula " + peli.getEdadMinima());
+				System.out.println("tu dinero " + espectadores[i].getDinero() + " --> Precio de el cine " + cine.getPrecioEntrada());
+				System.out.println("su asiento es columna " + espectadores[i].getCol() + " --> y fila " + espectadores[i].getFil());
+				System.out.println();
+			}
+		}*/
+		
+		System.out.println("Estos espectadores no han podido entrar: ");
 		System.out.println();
 		for (int i = 0; i < espectadores.length; i++) {
 			if (espectadores[i].isSentado()) {

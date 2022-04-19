@@ -7,6 +7,7 @@ public class Espectador {
 	private double dinero;
 	private int fil;
 	private int col;
+	private boolean sentado;
 
 	public Espectador() {
 		this.nombre = "";
@@ -18,6 +19,7 @@ public class Espectador {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.dinero = dinero;
+		this.sentado = false;
 	}
 
 	public String getNombre() {
@@ -86,4 +88,14 @@ public class Espectador {
 	public String toString() {
 		return "Espectador [nombre=" + nombre + ", edad=" + edad + ", dinero=" + dinero + "]";
 	}
+
+	public boolean isSentado() {
+		return sentado;
+	}
+
+	public void setSentado(boolean sentado) {
+		this.sentado = sentado;
+	}
+	
+	
 }

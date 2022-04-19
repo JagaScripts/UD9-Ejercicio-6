@@ -8,22 +8,21 @@ public class mainApp {
 
 	public static void main(String[] args) {
 
-		// TODO Auto-generated method stub
-			final int FILA = 8, COL = 9;
-			// Sala de cine
-			char[][] sala = new char[FILA][COL];
-			boolean generar;
-			int fila, col, total = FILA * COL; // total de asientos
-			String pregunta;
-			Pelicula peli = new Pelicula("Batman", 144, 10, "saik");
-			SalaCine cine1 = new SalaCine (peli);
-			
-			SalaCine cine = new SalaCine();
-			
-			//cine.llenarMatriz(sala);
-			
-			cine.mostrarCine(sala);
-
+		final int FILA = 8, COL = 9;
+		// Sala de cine
+		char[][] sala = new char[FILA][COL];
+		boolean generar;
+		int fila, col, total = FILA * COL; // total de asientos
+		String pregunta;
+		Pelicula peli = new Pelicula("Batman", 144, 10, "saik");
+		SalaCine cine1 = new SalaCine (peli);
+		
+		SalaCine cine = new SalaCine();
+		
+		cine.llenarMatriz(sala);
+		
+		//cine.mostrarCine(sala);
+		
 		
 		}
 	//Para generar edad random
@@ -46,5 +45,4 @@ public class mainApp {
 	}
 	
 
-		
 }

@@ -58,5 +58,5 @@ public class Espectador {
 				return true;
 			}
 		}
-		
+				
 }

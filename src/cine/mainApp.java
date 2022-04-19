@@ -1,5 +1,6 @@
 package cine;
 
+import java.util.Hashtable;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -17,11 +18,16 @@ public class mainApp {
 		Pelicula peli = new Pelicula("Batman", 144, 10, "saik");
 		SalaCine cine1 = new SalaCine (peli);
 		
+		
 		SalaCine cine = new SalaCine();
 		
 		cine.llenarMatriz(sala);
 		
 		//cine.mostrarCine(sala);
+		for (int i = 0; i < 72; i++) {
+			//Hashtable<I, Espectador> 
+			//Espectador es
+		}
 		
 		
 		}
